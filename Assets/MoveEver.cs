@@ -3,13 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 public class MoveEver : MonoBehaviour {
 	public GameObject pref;
+
+	void Awake() {
+		Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
+	}
 	// Use this for initialization
 	void Start () {
 	
 	}
 
 	void OnEnable(){
-		StartCoroutine (move ());
+//		StartCoroutine (move ());
 
 	}
 	// Update is called once per frame
@@ -25,19 +30,15 @@ public class MoveEver : MonoBehaviour {
 			if (lst.Count > 4000) {
 				foreach (GameObject ob in lst) {
 					for (int i = 0; i < 1000; i++) {
-						lst.
+						lst.Remove (ob);
 					}
 
-						Destroy (ob);
+					Destroy (ob);
 				}
 //				lst.Clear ();
 				continue;
 
 			}
-
-
-
-			lst.Remove(
 
 			float y = Random.Range (-size, size);
 			float x = Random.Range (-size, size);
